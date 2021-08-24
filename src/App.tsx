@@ -1,8 +1,12 @@
 import React from "react";
+import { Home } from "Pages";
+
 const App: React.FC = () => {
   return (
     <>
-      <div className="App">todolist</div>
+      <div className="App">
+        <Home />
+      </div>
     </>
   );
 };
