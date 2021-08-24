@@ -1,7 +1,5 @@
-import React, { useState } from "react";
-import { LOCAL_STORAGE, STATUS } from "Utils";
-
-const { NOT_STARTED, ONGOING, FINISHED } = STATUS;
+import  { useState } from "react";
+import { LOCAL_STORAGE, MockUp } from "Utils";
 
 export type ITodoState = {
   id: number;
