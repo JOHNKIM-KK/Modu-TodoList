@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { LOCAL_STORAGE, MockUp } from "Utils";
-import filtering from "./TodoFiltering";
+import filtering from "./filtering";
 
 export type ITodoState = {
   id: number;
@@ -11,32 +11,13 @@ export type ITodoState = {
   importance: number;
 };
 
-const TodoLists = [
-  {
-    id: 1,
-    taskName: "자소서 쓰기",
-    status: 0,
-    createdAt: "2021-02-03",
-    dueDate: "2021-07-07",
-    importance: 0, // 0~2
-  },
-  {
-    id: 2,
-    taskName: "블로그 쓰기",
-    status: 1,
-    createdAt: "2021-02-03",
-    dueDate: "2021-07-07",
-    importance: 1, // 0~2
-  },
-];
-
 const initialTodos: ITodoState[] = [
   {
     id: 1,
     taskName: "자소서 쓰기",
     status: 0,
     createdAt: "2021-02-03",
-    dueDate: "2021-07-07",
+    dueDate: "2021-10-07",
     importance: 0, // 0~2
   },
   {
@@ -52,7 +33,7 @@ const initialTodos: ITodoState[] = [
     taskName: "아무거나 읽기",
     status: 1,
     createdAt: "2021-02-03",
-    dueDate: "2021-07-07",
+    dueDate: "2021-07-08",
     importance: 3, // 0~2
   },
   {
@@ -60,7 +41,7 @@ const initialTodos: ITodoState[] = [
     taskName: "이것저것 하기",
     status: 1,
     createdAt: "2021-02-03",
-    dueDate: "2021-07-07",
+    dueDate: "2021-07-09",
     importance: 2, // 0~2
   },
 ];
@@ -134,24 +115,7 @@ export const TodoService = (): TodoServiceReturn => {
 
   const filterTodo = (filterName: string) => {
     console.log(filterName);
-    const newTodoState = [...todoState];
-    switch (filterName) {
-      case "importance":
-        console.log(
-          newTodoState.sort(
-            (firstTodo, secondTodo) =>
-              secondTodo.importance - firstTodo.importance
-          )
-        );
-        setTodoState(
-          newTodoState.sort(
-            (firstTodo, secondTodo) =>
-              secondTodo.importance - firstTodo.importance
-          )
-        );
-        break;
-      default:
-    }
+    filtering(filterName, todoState, setTodoState);
   };
 
   useEffect(() => {
