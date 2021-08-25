@@ -1,8 +1,9 @@
 import { STATUS } from "Utils";
+import { ITodoState } from "Components/TodoList";
 
 const { NOT_STARTED, ONGOING, FINISHED } = STATUS;
 
-const MockUp = [
+const MockUp: ITodoState[] = [
   {
     id: 0,
     taskName: "todo 시작안함, 중요도 0",
