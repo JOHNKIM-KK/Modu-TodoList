@@ -18,19 +18,19 @@ const InsertForm = styled.form`
 `;
 
 const Input = styled.input`
+  box-sizing: border-box;
+  width: 100%;
   padding: 12px;
   background-color: transparent;
   border: none;
   border-bottom: 1px solid #333;
-  width: 100%;
-  outline: none;
   font-size: 21px;
-  box-sizing: border-box;
   color: #119955;
+  outline: none;
   &::placeholder {
     text-align: center;
-    color: #dddddd;
     font-size: 16px;
+    color: #dddddd;
   }
 `;
 
