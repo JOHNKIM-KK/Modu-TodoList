@@ -1,29 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import filtering from "./Utils/filtering";
-
-const FilterLists = [
-  {
-    id: 0,
-    text: "중요도",
-    name: "importance",
-  },
-  {
-    id: 1,
-    text: "최신순",
-    name: "recent",
-  },
-  {
-    id: 2,
-    text: "생성일순",
-    name: "createdDate",
-  },
-  {
-    id: 3,
-    text: "마감일순",
-    name: "dueDate",
-  },
-];
+import React, { useState } from "react";
+import styled, { css } from "styled-components";
+import FilterLists from "Utils/Constants/FilterLists";
 
 const FilterBlock = styled.div`
   position: relative;
@@ -32,14 +9,26 @@ const FilterBlock = styled.div`
   left: 100%;
   padding-left: 20px;
   list-style: none;
+`;
 
-  button {
-    max-width: 90px;
-    margin-bottom: 5px;
-    background-color: lightcoral;
-    border: 1px solid #333;
-    text-align: center;
+const FilterButton = styled.button<{ selected: boolean; colorNum: number }>`
+  max-width: 90px;
+  padding: 2px;
+  border: 1px solid #333;
+  text-align: center;
+  line-height: 18px;
+  background-color: ${props => props.theme.filterColor[props.colorNum]};
+  transition: all 0.3s ease-out;
+
+  & + & {
+    margin-top: 10px;
   }
+  ${props =>
+    props.selected &&
+    css`
+      transform: scale(1.05);
+      box-shadow: 2px 3px 5px 0px;
+    `};
 `;
 
 interface TodoFilterProps {
@@ -47,16 +36,25 @@ interface TodoFilterProps {
 }
 
 const TodoFilter: React.FC<TodoFilterProps> = ({ filterTodo }) => {
-  const clickFilter = e => {
-    filterTodo(e.target.name);
+  const [filterName, setFilterName] = useState("");
+
+  const clickFilter = (e: React.MouseEvent<HTMLButtonElement>) => {
+    setFilterName(e.currentTarget.name);
+    filterTodo(e.currentTarget.name);
   };
 
   return (
     <FilterBlock>
       {FilterLists.map(list => (
-        <button key={list.id} onClick={clickFilter} name={list.name}>
+        <FilterButton
+          colorNum={list.id}
+          key={list.id}
+          onClick={clickFilter}
+          name={list.name}
+          selected={filterName === list.name}
+        >
           {list.text}
-        </button>
+        </FilterButton>
       ))}
     </FilterBlock>
   );
