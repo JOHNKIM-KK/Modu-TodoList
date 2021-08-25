@@ -5,14 +5,14 @@ import { TodoCreate, TodoFilter, TodoList } from "Components/TodoList";
 import { TodoService } from "Components/TodoList/Utils/TodoService";
 
 const Home: React.FC = () => {
-  const { createTodo } = TodoService();
+  const { createTodo, todoState, filterTodo } = TodoService();
   return (
     <>
       <Nav />
       <TodoTemplate>
         <TodoCreate createTodo={createTodo} />
-        <TodoFilter />
-        <TodoList />
+        <TodoFilter filterTodo={filterTodo} />
+        <TodoList todoState={todoState} />
       </TodoTemplate>
     </>
   );

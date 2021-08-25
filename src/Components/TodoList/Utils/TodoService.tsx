@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { LOCAL_STORAGE, MockUp } from "Utils";
+import filtering from "./filtering";
 
 export type ITodoState = {
   id: number;
@@ -10,7 +11,40 @@ export type ITodoState = {
   importance: number;
 };
 
-const initialTodos: ITodoState[] = [];
+const initialTodos: ITodoState[] = [
+  {
+    id: 1,
+    taskName: "자소서 쓰기",
+    status: 0,
+    createdAt: "2021-02-03",
+    dueDate: "2021-10-07",
+    importance: 0, // 0~2
+  },
+  {
+    id: 2,
+    taskName: "블로그 쓰기",
+    status: 1,
+    createdAt: "2021-02-04",
+    dueDate: "2021-07-07",
+    importance: 2, // 0~2
+  },
+  {
+    id: 3,
+    taskName: "아무거나 읽기",
+    status: 1,
+    createdAt: "2021-02-05",
+    dueDate: "2021-07-08",
+    importance: 3, // 0~2
+  },
+  {
+    id: 4,
+    taskName: "이것저것 하기",
+    status: 1,
+    createdAt: "2021-02-06",
+    dueDate: "2021-07-09",
+    importance: 2, // 0~2
+  },
+];
 
 interface TodoServiceReturn {
   todoState: ITodoState[];
@@ -18,6 +52,7 @@ interface TodoServiceReturn {
   toggleImportance: (id: number, nextImportance: number) => void;
   createTodo: (todo: ITodoState) => void;
   removeTodo: (id: number) => void;
+  filterTodo: (filterName: string) => void;
 }
 
 export const TodoService = (): TodoServiceReturn => {
@@ -77,11 +112,16 @@ export const TodoService = (): TodoServiceReturn => {
     [todoState]
   );
 
+  const filterTodo = (filterName: string) => {
+    setTodoState(filtering(filterName, todoState));
+  };
+
   return {
     todoState,
     toggleStatus,
     toggleImportance,
     createTodo,
     removeTodo,
+    filterTodo,
   };
 };
