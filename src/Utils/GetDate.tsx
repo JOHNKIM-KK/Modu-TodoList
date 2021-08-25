@@ -17,3 +17,10 @@ export const getDate = (): GetDateReturn => {
     currentDate,
   };
 };
+
+export const today = (): string => {
+  const { date, month, year } = dates();
+  return `${year}-${month < 10 ? `0${month}` : month}-${
+    date < 10 ? `0${date}` : date
+  }`;
+};
