@@ -1,7 +1,7 @@
-import { ITodoState } from "Components/TodoList/Utils/TodoService";
+import { ITodoState } from "Components/TodoList/";
 
 interface IStorage {
-  get: (key: string) => string;
+  get: (key: string) => ITodoState[] | null;
   set: (key: string, value: ITodoState[]) => void;
   remove: (key: string) => void;
   clear: (key: string) => void;
@@ -13,8 +13,10 @@ const storage = (storage: Storage): IStorage => {
       try {
         const getKey = storage.getItem(key);
         if (getKey) {
-          return JSON.parse(getKey);
+          const temp = JSON.parse(getKey);
+          return temp;
         }
+        return null;
       } catch (error) {
         return null;
       }

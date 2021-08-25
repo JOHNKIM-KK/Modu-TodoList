@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { LOCAL_STORAGE, MockUp } from "Utils";
 
 export type ITodoState = {
@@ -12,18 +12,34 @@ export type ITodoState = {
 
 const initialTodos: ITodoState[] = [];
 
-const TodoService = () => {
+interface TodoServiceReturn {
+  todoState: ITodoState[];
+  toggleStatus: (id: number) => void;
+  toggleImportance: (id: number, nextImportance: number) => void;
+  createTodo: (todo: ITodoState) => void;
+  removeTodo: (id: number) => void;
+}
+
+export const TodoService = (): TodoServiceReturn => {
   const [todoState, setTodoState] = useState<ITodoState[]>(initialTodos);
 
-  const saveData = () => {
-    LOCAL_STORAGE.set("todos", todoState);
-  };
+  useEffect(() => {
+    loadData();
+  }, []);
 
-  const loadData = () => {
+  useEffect(() => {
+    saveData();
+  }, [todoState]);
+
+  const saveData = useCallback(() => {
+    LOCAL_STORAGE.set("todos", todoState);
+  }, [todoState]);
+
+  const loadData = useCallback(() => {
     const data = LOCAL_STORAGE.get("todos");
-    const temp = data ? JSON.parse(data) : MockUp;
+    const temp = data ? data : MockUp;
     setTodoState(temp);
-  };
+  }, []);
 
   const toggleStatus = (id: number) => {
     setTodoState(prevTodo =>
@@ -47,15 +63,25 @@ const TodoService = () => {
     );
   };
 
-  const createTodo = (todo: ITodoState) => {
-    const nextId =
-      (todoState.length ? todoState[todoState.length - 1].id : 0) + 1;
+  const createTodo = useCallback(
+    (todo: ITodoState) => {
+      const nextId =
+        (todoState.length ? todoState[todoState.length - 1].id : 0) + 1;
+      setTodoState(prevTodo =>
+        prevTodo.concat({
+          ...todo,
+          id: nextId,
+        })
+      );
+    },
+    [todoState]
+  );
 
-    setTodoState(prevTodo =>
-      prevTodo.concat({
-        ...todo,
-        id: nextId,
-      })
-    );
+  return {
+    todoState,
+    toggleStatus,
+    toggleImportance,
+    createTodo,
+    removeTodo,
   };
 };
