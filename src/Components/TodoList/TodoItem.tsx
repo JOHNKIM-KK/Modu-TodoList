@@ -1,9 +1,18 @@
 import React from "react";
+import { ITodoState } from "Components/TodoList/Utils/TodoService";
 
-const TodoItem: React.FC = () => {
+interface TodoItemProps {
+  data: ITodoState;
+}
+
+const TodoItem: React.FC<TodoItemProps> = ({ data }) => {
+  const { taskName, dueDate } = data;
   return (
     <>
-      <div>TodoItem</div>
+      <div>status Circle</div>
+      <div>{taskName}</div>
+      <div>{dueDate}</div>
+      <i className="far fa-trash-alt"></i>
     </>
   );
 };

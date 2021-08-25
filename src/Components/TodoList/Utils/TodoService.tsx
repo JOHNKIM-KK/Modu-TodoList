@@ -1,4 +1,4 @@
-import  { useState } from "react";
+import { useState } from "react";
 import { LOCAL_STORAGE, MockUp } from "Utils";
 
 export type ITodoState = {
