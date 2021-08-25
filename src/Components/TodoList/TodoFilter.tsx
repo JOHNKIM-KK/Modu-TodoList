@@ -26,11 +26,11 @@ const FilterBlock = styled.div`
   padding-left: 20px;
 
   div {
+    width: 90px;
+    margin-bottom: 5px;
     background-color: lightcoral;
     border: 1px solid #333;
-    width: 90px;
     text-align: center;
-    margin-bottom: 5px;
   }
 `;
 
