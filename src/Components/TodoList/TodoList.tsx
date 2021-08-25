@@ -7,7 +7,6 @@ interface TodoListProps {
   todoState: ITodoState[];
 }
 const TodoList: React.FC<TodoListProps> = ({ todoState }) => {
-  console.log("todoState", todoState);
   return (
     <DragDrop>
       {todoState.map(item => (

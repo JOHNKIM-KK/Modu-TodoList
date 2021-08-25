@@ -2,23 +2,44 @@ import { ITodoState } from "./TodoService";
 
 const filtering = (
   filterName: string,
-  todoState: ITodoState[],
-  setTodoState: React.Dispatch<React.SetStateAction<ITodoState[]>>
-): void => {
+  todoState: ITodoState[]
+): ITodoState[] => {
+  const newTodoState = [...todoState];
   switch (filterName) {
     case "importance":
-      const newTodoState = [...todoState];
-      setTodoState(
-        newTodoState.sort(
-          (firstTodo, secondTodo) =>
-            secondTodo.importance - firstTodo.importance
-        )
+      newTodoState.sort(
+        (firstTodo, secondTodo) => secondTodo.importance - firstTodo.importance
       );
       break;
+    case "recent":
+      newTodoState.sort((firstTodo, secondTodo) => {
+        return firstTodo.createdAt > secondTodo.createdAt
+          ? -1
+          : firstTodo.createdAt < secondTodo.createdAt
+          ? 1
+          : 0;
+      });
+      break;
+    case "createdDate":
+      newTodoState.sort((firstTodo, secondTodo) => {
+        return firstTodo.createdAt < secondTodo.createdAt
+          ? -1
+          : firstTodo.createdAt > secondTodo.createdAt
+          ? 1
+          : 0;
+      });
+      break;
     case "dueDate":
-      console.log("dueDate");
+      newTodoState.sort((firstTodo, secondTodo) => {
+        return firstTodo.dueDate < secondTodo.dueDate
+          ? -1
+          : firstTodo.dueDate > secondTodo.dueDate
+          ? 1
+          : 0;
+      });
       break;
   }
+  return newTodoState;
 };
 
 export default filtering;

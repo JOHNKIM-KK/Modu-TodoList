@@ -24,7 +24,7 @@ const initialTodos: ITodoState[] = [
     id: 2,
     taskName: "블로그 쓰기",
     status: 1,
-    createdAt: "2021-02-03",
+    createdAt: "2021-02-04",
     dueDate: "2021-07-07",
     importance: 2, // 0~2
   },
@@ -32,7 +32,7 @@ const initialTodos: ITodoState[] = [
     id: 3,
     taskName: "아무거나 읽기",
     status: 1,
-    createdAt: "2021-02-03",
+    createdAt: "2021-02-05",
     dueDate: "2021-07-08",
     importance: 3, // 0~2
   },
@@ -40,7 +40,7 @@ const initialTodos: ITodoState[] = [
     id: 4,
     taskName: "이것저것 하기",
     status: 1,
-    createdAt: "2021-02-03",
+    createdAt: "2021-02-06",
     dueDate: "2021-07-09",
     importance: 2, // 0~2
   },
@@ -114,8 +114,7 @@ export const TodoService = (): TodoServiceReturn => {
   );
 
   const filterTodo = (filterName: string) => {
-    console.log(filterName);
-    filtering(filterName, todoState, setTodoState);
+    setTodoState(filtering(filterName, todoState));
   };
 
   useEffect(() => {
