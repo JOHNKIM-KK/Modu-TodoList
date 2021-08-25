@@ -34,7 +34,7 @@ const FilterBlock = styled.div`
   list-style: none;
 
   button {
-    width: 90px;
+    max-width: 90px;
     margin-bottom: 5px;
     background-color: lightcoral;
     border: 1px solid #333;

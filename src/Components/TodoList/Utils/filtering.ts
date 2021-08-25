@@ -5,6 +5,7 @@ const filtering = (
   todoState: ITodoState[]
 ): ITodoState[] => {
   const newTodoState = [...todoState];
+
   switch (filterName) {
     case "importance":
       newTodoState.sort(

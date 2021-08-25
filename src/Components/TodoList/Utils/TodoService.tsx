@@ -71,10 +71,9 @@ export const TodoService = (): TodoServiceReturn => {
   }, [todoState]);
 
   const loadData = useCallback(() => {
-    // const data = LOCAL_STORAGE.get("todos");
-    // const temp = data ? data : MockUp;
-    // setTodoState(temp);
-    localStorage.setItem("todos", JSON.stringify(todoState));
+    const data = LOCAL_STORAGE.get("todos");
+    const temp = data ? data : MockUp;
+    setTodoState(temp);
   }, []);
 
   const toggleStatus = (id: number) => {
@@ -116,10 +115,6 @@ export const TodoService = (): TodoServiceReturn => {
   const filterTodo = (filterName: string) => {
     setTodoState(filtering(filterName, todoState));
   };
-
-  useEffect(() => {
-    console.log(todoState);
-  }, [todoState]);
 
   return {
     todoState,
