@@ -1,6 +1,7 @@
 import React from "react";
 import { DragDrop } from "Components/DragDrop";
 import { TodoItem } from "Components/TodoList";
+import styled from "styled-components";
 
 const TodoLists = [
   {
@@ -20,14 +21,23 @@ const TodoLists = [
     importance: 0, // 0~2
   },
 ];
-const TodoList: React.FC = () => {
+interface TodoListProps {
+  removeTodo: (id: number) => void;
+}
+const TodoList: React.FC<TodoListProps> = ({ removeTodo }) => {
   return (
     <DragDrop>
       {TodoLists.map(item => (
-        <TodoItem data={item} />
+        <ToDo>
+          <TodoItem removeTodo={removeTodo} data={item} />
+        </ToDo>
       ))}
     </DragDrop>
   );
 };
-
+const ToDo = styled.div`
+  display: flex;
+  margin: 20px;
+  justify-content: center;
+`;
 export default TodoList;
