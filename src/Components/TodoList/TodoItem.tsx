@@ -7,8 +7,7 @@ interface TodoItemProps {
 }
 
 const TodoItem: React.FC<TodoItemProps> = ({ data, removeTodo }) => {
-  const { taskName, dueDate, id } = data;
-
+  const { taskName, dueDate, importance, createdAt, id } = data;
   return (
     <>
       <div>
@@ -20,7 +19,9 @@ const TodoItem: React.FC<TodoItemProps> = ({ data, removeTodo }) => {
         <i className="far fa-star"></i>
       </div>
       <div>{taskName}</div>
-      <div>{dueDate}</div>
+      <div>생성일: {createdAt}</div>
+      <div>마감일: {dueDate}</div>
+      <div>중요도: {importance}</div>
       <div
         onClick={() => {
           removeTodo(id);
