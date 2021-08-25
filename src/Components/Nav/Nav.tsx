@@ -1,45 +1,10 @@
 import React, { useState } from "react";
+import { getDate } from "Utils/GetDate";
 import useInterval from "hooks/useInterval";
 import styled from "styled-components";
 
-const DAYS = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-
-const MONTHS = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "Octber",
-  "November",
-  "December",
-];
-
 const Nav: React.FC = () => {
-  const today = new Date();
-  const day = today.getDay();
-  const date = today.getDate();
-  const month = today.getMonth();
-  const year = today.getFullYear();
-  const hours = today.getHours();
-  const minutes = today.getMinutes();
-  const seconds = today.getSeconds();
-  const currentDate = `${DAYS[day]}  ${MONTHS[month]} ${date}, ${year}`;
-  const currentTime = `${hours < 10 ? `0${hours}` : hours}: ${
-    minutes < 10 ? `0${minutes}` : minutes
-  } : ${seconds < 10 ? `0${seconds}` : seconds}`;
+  const { currentDate, currentTime } = getDate();
 
   const [totalDate, setTotalDate] = useState({
     dates: currentDate,
