@@ -3,10 +3,12 @@ import styled, { css } from "styled-components";
 import FilterLists from "Utils/Constants/FilterLists";
 
 const FilterBlock = styled.div`
-  position: relative;
+  position: absolute;
   display: flex;
+  width: fit-content;
   flex-direction: column;
-  left: 100%;
+  top: 30px;
+  left: 94%;
   padding-left: 20px;
   list-style: none;
 `;
@@ -39,8 +41,9 @@ const TodoFilter: React.FC<TodoFilterProps> = ({ filterTodo }) => {
   const [filterName, setFilterName] = useState("");
 
   const clickFilter = (e: React.MouseEvent<HTMLButtonElement>) => {
-    setFilterName(e.currentTarget.name);
-    filterTodo(e.currentTarget.name);
+    const { name } = e.currentTarget;
+    setFilterName(name);
+    filterTodo(name);
   };
 
   return (

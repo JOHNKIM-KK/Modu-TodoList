@@ -14,18 +14,18 @@ const filtering = (
       break;
     case "recent":
       newTodoState.sort((firstTodo, secondTodo) => {
-        return firstTodo.createdAt > secondTodo.createdAt
+        return firstTodo.id > secondTodo.id
           ? -1
-          : firstTodo.createdAt < secondTodo.createdAt
+          : firstTodo.id < secondTodo.id
           ? 1
           : 0;
       });
       break;
     case "createdDate":
       newTodoState.sort((firstTodo, secondTodo) => {
-        return firstTodo.createdAt < secondTodo.createdAt
+        return firstTodo.id < secondTodo.id
           ? -1
-          : firstTodo.createdAt > secondTodo.createdAt
+          : firstTodo.id > secondTodo.id
           ? 1
           : 0;
       });

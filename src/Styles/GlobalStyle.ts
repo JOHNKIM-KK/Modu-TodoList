@@ -7,6 +7,8 @@ const GlobalStyle = createGlobalStyle`
   html,
   body {
     overflow: hidden;
+    width: 100%;
+    height: 100%;
   }
 
   * {
