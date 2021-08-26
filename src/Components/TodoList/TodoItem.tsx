@@ -24,7 +24,7 @@ const TodoItem: React.FC<TodoItemProps> = ({
     setProgress(PROGRESS_STATUS[status]);
   }, [status]);
 
-  const handleModal = () => {
+  const openModal = () => {
     setIsOpen(!isOpen);
   };
 
@@ -46,7 +46,7 @@ const TodoItem: React.FC<TodoItemProps> = ({
         <Progress onClick={handleStatus}>
           <i className={progress}></i>
         </Progress>
-        <Importance color={TODOLEVEL[importance]} onClick={handleModal}>
+        <Importance color={TODOLEVEL[importance]} onClick={openModal}>
           <i className="fas fa-flag"></i>
           <OptionBox isopen={isOpen}>
             {TODOLEVEL.map((color, idx) => (

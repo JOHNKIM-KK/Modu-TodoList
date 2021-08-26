@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import { STATUS } from "Utils";
+import { STATUS, today } from "Utils";
 import { ITodoState } from ".";
 import styled from "styled-components";
 
@@ -30,6 +30,7 @@ const Input = styled.input`
   font-size: 21px;
   color: #333;
   outline: none;
+  text-align: center;
   &::placeholder {
     text-align: center;
     font-size: 16px;
@@ -63,7 +64,7 @@ const TodoCreate: React.FC<TodoCreateProps> = ({ createTodo }) => {
         taskName: todo,
         // status: NOT_STARTED,
         status: 0,
-        createdAt: now,
+        createdAt: today(),
         dueDate: date,
         importance: 0,
       });
