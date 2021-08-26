@@ -39,8 +39,9 @@ const TodoFilter: React.FC<TodoFilterProps> = ({ filterTodo }) => {
   const [filterName, setFilterName] = useState("");
 
   const clickFilter = (e: React.MouseEvent<HTMLButtonElement>) => {
-    setFilterName(e.currentTarget.name);
-    filterTodo(e.currentTarget.name);
+    const { name } = e.currentTarget;
+    setFilterName(name);
+    filterTodo(name);
   };
 
   return (

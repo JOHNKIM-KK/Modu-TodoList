@@ -33,12 +33,15 @@ const TodoItem: React.FC<TodoItemProps> = ({
   };
 
   const handleImportance = (nextImportance: number) => {
+    console.log(nextImportance);
     toggleImportance(id, nextImportance);
   };
 
   const handleRemove = () => {
     removeTodo(id);
   };
+
+  console.log(importance);
 
   return (
     <ItemBox>
@@ -53,7 +56,9 @@ const TodoItem: React.FC<TodoItemProps> = ({
               <Level
                 key={idx}
                 color={color}
-                onClick={() => handleImportance(idx)}
+                onClick={() => {
+                  handleImportance(idx);
+                }}
               >
                 <i className="fas fa-flag"></i>
               </Level>

@@ -11,40 +11,7 @@ export type ITodoState = {
   importance: number;
 };
 
-const initialTodos: ITodoState[] = [
-  {
-    id: 1,
-    taskName: "자소서 쓰기",
-    status: 0,
-    createdAt: "2021-02-03",
-    dueDate: "2021-10-07",
-    importance: 0, // 0~2
-  },
-  {
-    id: 2,
-    taskName: "블로그 쓰기",
-    status: 1,
-    createdAt: "2021-02-04",
-    dueDate: "2021-07-07",
-    importance: 2, // 0~2
-  },
-  {
-    id: 3,
-    taskName: "아무거나 읽기",
-    status: 1,
-    createdAt: "2021-02-05",
-    dueDate: "2021-07-08",
-    importance: 3, // 0~2
-  },
-  {
-    id: 4,
-    taskName: "이것저것 하기",
-    status: 1,
-    createdAt: "2021-02-06",
-    dueDate: "2021-07-09",
-    importance: 2, // 0~2
-  },
-];
+const initialTodos: ITodoState[] = [];
 
 interface TodoServiceReturn {
   todoState: ITodoState[];
@@ -105,15 +72,15 @@ export const TodoService = (): TodoServiceReturn => {
       setTodoState(prevTodo =>
         prevTodo.concat({
           ...todo,
-          id: nextId,
+          id: nextId + 1,
         })
       );
     },
     [todoState]
   );
 
-  const filterTodo = (filterName: string) => {
-    setTodoState(filtering(filterName, todoState));
+  const filterTodo = (filterName: string): ITodoState[] => {
+    return filtering(filterName, todoState);
   };
 
   return {

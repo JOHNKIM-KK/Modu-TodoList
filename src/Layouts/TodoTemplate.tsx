@@ -9,6 +9,7 @@ interface TodoTemplateProps {
 const TodoTemplateBlock = styled.div`
   display: flex;
   position: relative;
+  overflow-y: hidden;
   flex-direction: column;
   width: 70%;
   height: 800px;
@@ -19,7 +20,7 @@ const TodoTemplateBlock = styled.div`
   /* margin-bottom: 32px; */
   padding: 0px 70px;
   background-image: url(${bg});
-  background-size: 100%, 100%;
+  background-size: cover;
 `;
 
 const TodoTemplate: React.FC<TodoTemplateProps> = props => {
