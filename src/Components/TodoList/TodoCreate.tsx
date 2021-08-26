@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { STATUS, today } from "Utils";
+import { today } from "Utils";
 import { ITodoState } from ".";
 import styled from "styled-components";
 
@@ -7,7 +7,6 @@ const TodoHeadBlock = styled.div`
   display: flex;
   justify-content: center;
   padding-top: 52px;
-  padding-bottom: 24px;
 `;
 
 const InsertForm = styled.form`
@@ -17,7 +16,6 @@ const InsertForm = styled.form`
   padding-left: 40px;
   padding-top: 16px;
   padding-right: 60px;
-  padding-bottom: 16px;
 `;
 
 const Input = styled.input`
@@ -31,6 +29,7 @@ const Input = styled.input`
   color: #333;
   outline: none;
   text-align: center;
+
   &::placeholder {
     text-align: center;
     font-size: 16px;
@@ -44,8 +43,6 @@ const Calendar = styled.input`
   border: none;
   border-bottom: 1px solid #333;
 `;
-
-// const { NOT_STARTED } = STATUS;
 
 interface TodoCreateProps {
   createTodo: (todo: ITodoState) => void;
@@ -62,7 +59,6 @@ const TodoCreate: React.FC<TodoCreateProps> = ({ createTodo }) => {
       createTodo({
         id: 0,
         taskName: todo,
-        // status: NOT_STARTED,
         status: 0,
         createdAt: today(),
         dueDate: date,

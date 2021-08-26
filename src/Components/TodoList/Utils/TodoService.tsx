@@ -11,40 +11,7 @@ export type ITodoState = {
   importance: number;
 };
 
-const initialTodos: ITodoState[] = [
-  {
-    id: 1,
-    taskName: "자소서 쓰기",
-    status: 0,
-    createdAt: "2021-02-03",
-    dueDate: "2021-10-07",
-    importance: 0, // 0~2
-  },
-  {
-    id: 2,
-    taskName: "블로그 쓰기",
-    status: 1,
-    createdAt: "2021-02-04",
-    dueDate: "2021-07-07",
-    importance: 2, // 0~2
-  },
-  {
-    id: 3,
-    taskName: "아무거나 읽기",
-    status: 1,
-    createdAt: "2021-02-05",
-    dueDate: "2021-07-08",
-    importance: 3, // 0~2
-  },
-  {
-    id: 4,
-    taskName: "이것저것 하기",
-    status: 1,
-    createdAt: "2021-02-06",
-    dueDate: "2021-07-09",
-    importance: 2, // 0~2
-  },
-];
+const initialTodos: ITodoState[] = MockUp;
 
 interface TodoServiceReturn {
   todoState: ITodoState[];
@@ -53,6 +20,7 @@ interface TodoServiceReturn {
   createTodo: (todo: ITodoState) => void;
   removeTodo: (id: number) => void;
   filterTodo: (filterName: string) => void;
+  setTodoState: (state: ITodoState[]) => void;
 }
 
 export const TodoService = (): TodoServiceReturn => {
@@ -100,12 +68,19 @@ export const TodoService = (): TodoServiceReturn => {
 
   const createTodo = useCallback(
     (todo: ITodoState) => {
-      const nextId =
-        (todoState.length ? todoState[todoState.length - 1].id : 0) + 1;
+      const nextId = todoState.reduce(
+        (accumulator: number, currentValue: ITodoState) => {
+          if (currentValue.id >= accumulator) {
+            return currentValue.id;
+          }
+          return accumulator;
+        },
+        0
+      );
       setTodoState(prevTodo =>
         prevTodo.concat({
           ...todo,
-          id: nextId,
+          id: nextId + 1,
         })
       );
     },
@@ -123,5 +98,6 @@ export const TodoService = (): TodoServiceReturn => {
     createTodo,
     removeTodo,
     filterTodo,
+    setTodoState,
   };
 };
