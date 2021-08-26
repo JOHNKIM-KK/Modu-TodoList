@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { STATUS } from "Utils";
+// import { STATUS } from "Utils";
 import { ITodoState } from ".";
 import styled from "styled-components";
 
@@ -44,7 +44,7 @@ const Calendar = styled.input`
   border-bottom: 1px solid #333;
 `;
 
-const { NOT_STARTED } = STATUS;
+// const { NOT_STARTED } = STATUS;
 
 interface TodoCreateProps {
   createTodo: (todo: ITodoState) => void;
@@ -61,7 +61,8 @@ const TodoCreate: React.FC<TodoCreateProps> = ({ createTodo }) => {
       createTodo({
         id: 0,
         taskName: todo,
-        status: NOT_STARTED,
+        // status: NOT_STARTED,
+        status: 0,
         createdAt: now,
         dueDate: date,
         importance: 0,
