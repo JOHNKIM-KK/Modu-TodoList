@@ -4,7 +4,7 @@ import { Nav } from "Components/Nav";
 import { TodoCreate, TodoFilter, TodoList } from "Components/TodoList";
 import { TodoService } from "Components/TodoList/Utils/TodoService";
 import styled from "styled-components";
-import bg from "Assets/drowing.jpg";
+import bg from "Assets/background.jpg";
 
 const HomeBlock = styled.div`
   width: 100vw;
@@ -15,7 +15,6 @@ const HomeBlock = styled.div`
 
   background-image: url(${bg});
   background-size: cover;
-  /* background-repeat: no-repeat; */
   background-position: center;
   background-attachment: fixed;
 `;

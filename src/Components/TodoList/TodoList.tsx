@@ -30,7 +30,6 @@ const TodoList: React.FC<TodoListProps> = ({
     dragOverItem.current = position;
 
     const listCopy = [...todoState];
-    console.log(draggingItem.current, dragOverItem.current);
     const draggingItemContent = listCopy[draggingItem.current];
     listCopy.splice(draggingItem.current, 1);
     listCopy.splice(dragOverItem.current, 0, draggingItemContent);
@@ -40,25 +39,12 @@ const TodoList: React.FC<TodoListProps> = ({
     setTodoState(listCopy);
   };
 
-  // const handleDragEnd = e => {
-  //   const listCopy = [...todoState];
-
-  //   const draggingItemContent = listCopy[draggingItem.current];
-  //   listCopy.splice(draggingItem.current, 1);
-  //   listCopy.splice(dragOverItem.current, 0, draggingItemContent);
-
-  //   draggingItem.current = null;
-  //   dragOverItem.current = null;
-  //   setList(listCopy);
-  // };
-
   return (
     <DragDrop>
       {todoState.map((item, index) => (
         <ToDo
           onDragStart={() => handleDragStart(index)}
           onDragEnter={() => handleDragEnter(index)}
-          // onDragEnd={handleDragEnd}
           onDragOver={e => e.preventDefault()}
           key={index}
           draggable

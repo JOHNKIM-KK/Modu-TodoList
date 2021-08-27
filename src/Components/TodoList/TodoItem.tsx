@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { ITodoState } from ".";
 import { PROGRESS_STATUS, TODOLEVEL } from "Utils/Constants/ProgressStatus";
 import styled from "styled-components";
@@ -19,6 +19,7 @@ const TodoItem: React.FC<TodoItemProps> = ({
   const { taskName, dueDate, importance, status, id } = data;
   const [progress, setProgress] = useState("");
   const [isOpen, setIsOpen] = useState(false);
+  const optionModal = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setProgress(PROGRESS_STATUS[status]);
@@ -33,7 +34,6 @@ const TodoItem: React.FC<TodoItemProps> = ({
   };
 
   const handleImportance = (nextImportance: number) => {
-    console.log(nextImportance);
     toggleImportance(id, nextImportance);
   };
 
@@ -41,7 +41,23 @@ const TodoItem: React.FC<TodoItemProps> = ({
     removeTodo(id);
   };
 
-  console.log(importance);
+  const handleClickOutside = ({ target }: { target: HTMLElement }) => {
+    if (optionModal.current === null) return;
+
+    if (
+      isOpen &&
+      (!optionModal.current || !optionModal.current.contains(target))
+    ) {
+      return setIsOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("click", handleClickOutside);
+    return () => {
+      window.removeEventListener("click", handleClickOutside);
+    };
+  }, [isOpen]);
 
   return (
     <ItemBox>
@@ -51,7 +67,7 @@ const TodoItem: React.FC<TodoItemProps> = ({
         </Progress>
         <Importance color={TODOLEVEL[importance]} onClick={openModal}>
           <i className="fas fa-flag"></i>
-          <OptionBox isopen={isOpen}>
+          <OptionBox isopen={isOpen} ref={optionModal}>
             {TODOLEVEL.map((color, idx) => (
               <Level
                 key={idx}
