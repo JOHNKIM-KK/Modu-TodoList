@@ -38,7 +38,7 @@
 ## 구현사항
 ***
 
--이용훈 : Todo 생성하는 전체적인 로직 구현, DragNDrop 적용 <br/>
+-이용훈 :  DragNDrop 적용, Todo 생성하는 전체적인 로직 구현, Todo Create 구현, Calendar 세팅, localStorage 접근, 수정 구현 및 MockData 생성 <br/>
 <br/>
 -박세리 : 디자인 figma로 정리,remove 기능 엮기<br/>
 <br/>
