@@ -24,7 +24,7 @@ interface TodoServiceReturn {
 }
 
 export const TodoService = (): TodoServiceReturn => {
-  const [todoState, setTodoState] = useState<ITodoState[]>(initialTodos);
+  const [todoState, setTodoState] = useState<ITodoState[]>([]);
 
   useEffect(() => {
     loadData();
@@ -40,7 +40,7 @@ export const TodoService = (): TodoServiceReturn => {
 
   const loadData = useCallback(() => {
     const data = LOCAL_STORAGE.get("todos");
-    const temp = data ? data : MockUp;
+    const temp = data ? data : initialTodos;
     setTodoState(temp);
   }, []);
 
