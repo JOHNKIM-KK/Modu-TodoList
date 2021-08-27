@@ -20,7 +20,8 @@ export const getDate = (): GetDateReturn => {
 
 export const today = (): string => {
   const { date, month, year } = dates();
-  return `${year}-${month < 10 ? `0${month}` : month}-${
+  const monthNow = month + 1;
+  return `${year}-${monthNow < 10 ? `0${monthNow}` : monthNow}-${
     date < 10 ? `0${date}` : date
   }`;
 };
