@@ -41,12 +41,12 @@ const TodoItem: React.FC<TodoItemProps> = ({
     removeTodo(id);
   };
 
-  const handleClickOutside = ({ target }: { target: HTMLElement }) => {
+  const handleClickOutside = (e: MouseEvent) => {
     if (optionModal.current === null) return;
 
     if (
       isOpen &&
-      (!optionModal.current || !optionModal.current.contains(target))
+      (!optionModal.current || !optionModal.current.contains(e.target as Node))
     ) {
       return setIsOpen(false);
     }
