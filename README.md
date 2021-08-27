@@ -8,7 +8,7 @@
 
 -**기술 스택**: React, styled-components
 
--**배포 주소**: (주소 자리)
+-**배포 주소**: https://6128dd639f6ca9c1724ab771--goofy-shaw-c7b0d8.netlify.app/
 
 -**협업 도구**: slack, notion, github, visual studio code, gather
 
@@ -44,6 +44,6 @@
 <br/>
 -김명준 : header 날짜시간 렌더링, 새로운 task create/delete 로직 구현<br/>
 <br/>
--박연빈 : task filter 및 목록 조회 로직 구현<br/>
+-박연빈 : Todo filter 및 목록 조회 로직 구현<br/>
 
 ![preview of ToDoList](https://ifh.cc/g/JSSobo.jpg)
