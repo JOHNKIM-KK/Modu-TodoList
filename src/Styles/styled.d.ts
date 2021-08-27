@@ -7,5 +7,9 @@ declare module "styled-components" {
       sub: string;
     };
     filterColor: string[];
+
+    size: {
+      tablet: string;
+    };
   }
 }

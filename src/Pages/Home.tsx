@@ -4,6 +4,7 @@ import { Nav } from "Components/Nav";
 import { TodoCreate, TodoFilter, TodoList } from "Components/TodoList";
 import { TodoService } from "Components/TodoList/Utils/TodoService";
 import styled from "styled-components";
+import bg from "Assets/drowing.jpg";
 
 const HomeBlock = styled.div`
   width: 100vw;
@@ -12,7 +13,11 @@ const HomeBlock = styled.div`
   display: flex;
   flex-direction: column;
 
-  justify-content: flex-start;
+  background-image: url(${bg});
+  background-size: cover;
+  /* background-repeat: no-repeat; */
+  background-position: center;
+  background-attachment: fixed;
 `;
 
 const Home: React.FC = () => {
