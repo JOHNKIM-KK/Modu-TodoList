@@ -39,8 +39,11 @@
 ***
 
 -이용훈 : Todo 생성하는 전체적인 로직 구현, DragNDrop 적용 <br/>
+<br/>
 -박세리 : 디자인 figma로 정리,remove 기능 엮기<br/>
+<br/>
 -김명준 : header 날짜시간 렌더링, 새로운 task create/delete 로직 구현<br/>
+<br/>
 -박연빈 : task filter 및 목록 조회 로직 구현<br/>
 
 ![preview of ToDoList](https://ifh.cc/g/JSSobo.jpg)
