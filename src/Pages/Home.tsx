@@ -35,6 +35,7 @@ const Home: React.FC = () => {
       <Nav />
       <TodoTemplate>
         <TodoCreate createTodo={createTodo} />
+        <TodoFilter filterTodo={filterTodo} />
         <TodoList
           todoState={todoState}
           toggleStatus={toggleStatus}
@@ -42,7 +43,6 @@ const Home: React.FC = () => {
           removeTodo={removeTodo}
           setTodoState={setTodoState}
         />
-        <TodoFilter filterTodo={filterTodo} />
       </TodoTemplate>
     </HomeBlock>
   );

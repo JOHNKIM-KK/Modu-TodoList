@@ -5,7 +5,7 @@ const theme: DefaultTheme = {
     main: "#1c1f25",
     sub: "#fff",
   },
-  filterColor: ["#FFBB00", "#FFFF5A", "#86E57F", "#F15F5F"],
+  filterColor: ["#d5e1df", "#fdf2f0", "#f8dae2", "#fbb0ac"],
 
   size: {
     tablet: `(max-width: 1000px)`,

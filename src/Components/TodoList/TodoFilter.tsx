@@ -3,28 +3,30 @@ import styled, { css } from "styled-components";
 import FilterLists from "Utils/Constants/FilterLists";
 
 const FilterBlock = styled.div`
-  position: absolute;
   display: flex;
-  width: fit-content;
-  flex-direction: column;
+  justify-content: center;
+  width: 100%;
   top: 30px;
   left: 87%;
-  padding-left: 20px;
   list-style: none;
+  margin: 20px 0;
 `;
 
 const FilterButton = styled.button<{ selected: boolean; colorNum: number }>`
   max-width: 90px;
   padding: 2px;
   border: 2px solid #333;
+  border-radius: 30px;
+  padding: 0 10px;
   text-align: center;
   line-height: 18px;
   background-color: ${props => props.theme.filterColor[props.colorNum]};
   transition: all 0.3s ease-out;
 
   & + & {
-    margin-top: 10px;
+    margin-left: 20px;
   }
+
   ${props =>
     props.selected &&
     css`

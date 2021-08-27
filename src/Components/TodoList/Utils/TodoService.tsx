@@ -87,7 +87,7 @@ export const TodoService = (): TodoServiceReturn => {
     [todoState]
   );
 
-  const filterTodo = (filterName: string) => {
+  const filterTodo = (filterName: string): void => {
     setTodoState(filtering(filterName, todoState));
   };
 
