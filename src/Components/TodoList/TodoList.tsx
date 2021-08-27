@@ -1,8 +1,8 @@
 import React, { useRef } from "react";
 import { DragDrop } from "Components/DragDrop";
 import { TodoItem } from "Components/TodoList";
-import styled from "styled-components";
 import { ITodoState } from "./Utils/TodoService";
+import styled from "styled-components";
 
 interface TodoListProps {
   todoState: ITodoState[];

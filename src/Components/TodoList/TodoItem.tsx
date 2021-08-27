@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
+import { PROGRESS_STATUS, TODOLEVEL } from "Utils";
 import { ITodoState } from ".";
-import { PROGRESS_STATUS, TODOLEVEL } from "Utils/Constants/ProgressStatus";
 import styled from "styled-components";
 
 interface TodoItemProps {

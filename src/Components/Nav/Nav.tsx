@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { getDate } from "Utils/GetDate";
+import { getDate } from "Utils";
 import useInterval from "hooks/useInterval";
 import styled from "styled-components";
 
@@ -48,7 +48,6 @@ const Wrapper = styled.div`
   color: #fff;
   font-size: 40px;
   font-weight: 700;
-  font-family: "Hi Melody", cursive;
 
   @media ${props => props.theme.size.tablet} {
     flex-direction: column;

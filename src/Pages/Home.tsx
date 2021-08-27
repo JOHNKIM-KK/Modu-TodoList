@@ -1,23 +1,10 @@
 import React from "react";
+import styled from "styled-components";
 import { TodoTemplate } from "Layouts";
 import { Nav } from "Components/Nav";
 import { TodoCreate, TodoFilter, TodoList } from "Components/TodoList";
-import { TodoService } from "Components/TodoList/Utils/TodoService";
-import styled from "styled-components";
+import { TodoService } from "Components/TodoList";
 import bg from "Assets/background.jpg";
-
-const HomeBlock = styled.div`
-  width: 100vw;
-  height: 100vh;
-
-  display: flex;
-  flex-direction: column;
-
-  background-image: url(${bg});
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-`;
 
 const Home: React.FC = () => {
   const {
@@ -47,4 +34,16 @@ const Home: React.FC = () => {
   );
 };
 
+const HomeBlock = styled.div`
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  background-image: url(${bg});
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+`;
 export default Home;

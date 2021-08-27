@@ -5,6 +5,10 @@ interface TodoTemplateProps {
   children: React.ReactNode;
 }
 
+const TodoTemplate: React.FC<TodoTemplateProps> = props => {
+  return <TodoTemplateBlock>{props.children}</TodoTemplateBlock>;
+};
+
 const TodoTemplateBlock = styled.div`
   position: relative;
   display: flex;
@@ -14,9 +18,5 @@ const TodoTemplateBlock = styled.div`
   padding: 10px 90px 60px 90px;
   overflow-y: hidden;
 `;
-
-const TodoTemplate: React.FC<TodoTemplateProps> = props => {
-  return <TodoTemplateBlock>{props.children}</TodoTemplateBlock>;
-};
 
 export default TodoTemplate;

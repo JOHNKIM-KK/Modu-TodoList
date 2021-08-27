@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled, { css } from "styled-components";
-import FilterLists from "Utils/Constants/FilterLists";
+import { FilterLists } from "Utils/";
 
 interface TodoFilterProps {
   filterTodo: (filterName: string) => void;

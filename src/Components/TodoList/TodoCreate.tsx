@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { today } from "Utils";
+import { today, STATUS } from "Utils";
 import { ITodoState } from ".";
 import styled from "styled-components";
 
@@ -17,7 +17,7 @@ const TodoCreate: React.FC<TodoCreateProps> = ({ createTodo }) => {
       createTodo({
         id: 0,
         taskName: todo,
-        status: 0,
+        status: STATUS.NOT_STARTED,
         createdAt: today(),
         dueDate: date,
         importance: 0,
