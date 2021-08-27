@@ -49,9 +49,8 @@ interface TodoCreateProps {
 }
 
 const TodoCreate: React.FC<TodoCreateProps> = ({ createTodo }) => {
-  const now = "2021-08-30";
   const [todo, setTodo] = useState("");
-  const [date, setDate] = useState(now);
+  const [date, setDate] = useState(today());
 
   const submitTodo = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
