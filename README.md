@@ -8,7 +8,7 @@
 
 -**기술 스택**: React, styled-components
 
--**배포 주소**: https://6128dd639f6ca9c1724ab771--goofy-shaw-c7b0d8.netlify.app/
+-**배포 주소**: https://modootodolist.netlify.app/
 
 -**협업 도구**: slack, notion, github, visual studio code, gather
 
