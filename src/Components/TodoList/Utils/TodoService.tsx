@@ -11,7 +11,7 @@ export type ITodoState = {
   importance: number;
 };
 
-const initialTodos: ITodoState[] = [];
+const initialTodos: ITodoState[] = MockUp;
 
 interface TodoServiceReturn {
   todoState: ITodoState[];
@@ -20,6 +20,7 @@ interface TodoServiceReturn {
   createTodo: (todo: ITodoState) => void;
   removeTodo: (id: number) => void;
   filterTodo: (filterName: string) => void;
+  setTodoState: (state: ITodoState[]) => void;
 }
 
 export const TodoService = (): TodoServiceReturn => {
@@ -67,8 +68,15 @@ export const TodoService = (): TodoServiceReturn => {
 
   const createTodo = useCallback(
     (todo: ITodoState) => {
-      const nextId =
-        (todoState.length ? todoState[todoState.length - 1].id : 0) + 1;
+      const nextId = todoState.reduce(
+        (accumulator: number, currentValue: ITodoState) => {
+          if (currentValue.id >= accumulator) {
+            return currentValue.id;
+          }
+          return accumulator;
+        },
+        0
+      );
       setTodoState(prevTodo =>
         prevTodo.concat({
           ...todo,
@@ -79,8 +87,8 @@ export const TodoService = (): TodoServiceReturn => {
     [todoState]
   );
 
-  const filterTodo = (filterName: string): ITodoState[] => {
-    return filtering(filterName, todoState);
+  const filterTodo = (filterName: string): void => {
+    setTodoState(filtering(filterName, todoState));
   };
 
   return {
@@ -90,5 +98,6 @@ export const TodoService = (): TodoServiceReturn => {
     createTodo,
     removeTodo,
     filterTodo,
+    setTodoState,
   };
 };

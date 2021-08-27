@@ -7,21 +7,27 @@ interface TodoTemplateProps {
 }
 
 const TodoTemplateBlock = styled.div`
-  display: flex;
   position: relative;
-  overflow-y: hidden;
+  display: flex;
   flex-direction: column;
-  width: 70%;
-  height: 800px;
-  min-width: 360px;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
   max-width: 700px;
+
   margin: 0 auto;
-  /* margin-top: 96px; */
-  /* margin-bottom: 32px; */
-  padding: 0px 70px;
+  padding-top: 20px;
+
   background-image: url(${bg});
   background-size: cover;
-`;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  @media only screen and (max-width: 768px) {
+    padding-top: 10px;
+  }
+}`;
 
 const TodoTemplate: React.FC<TodoTemplateProps> = props => {
   return <TodoTemplateBlock>{props.children}</TodoTemplateBlock>;
