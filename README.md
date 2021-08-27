@@ -44,7 +44,7 @@ $ yarn start
 <br/>
 -김명준 :typescript 개발환경 초기세팅, Nav 날짜 및 시간 표시, Date를 받는 util 함수 생성, todo 항목 상태관리(진행도, 중요도) 구현, 반응형 디자인 및 로직 구현<br/>
 <br/>
--박연빈 : Todo filter 및 목록 조회 로직 구현<br/>
+-박연빈 : Todo filter관련 로직 구현, Todo filter 상수화, Todo 관련 로직 구현<br/>
 
 
 <img width="1920" alt="스크린샷 2021-08-27 오후 10 17 23" src="https://user-images.githubusercontent.com/76652614/131133625-885163e7-b454-4909-bd18-cbc2c1c49e44.png">
