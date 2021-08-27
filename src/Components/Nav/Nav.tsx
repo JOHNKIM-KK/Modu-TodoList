@@ -45,6 +45,7 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   width: 53%;
+  color: #fff;
   font-size: 40px;
   font-weight: 700;
   font-family: "Hi Melody", cursive;

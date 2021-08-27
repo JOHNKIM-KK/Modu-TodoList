@@ -6,6 +6,7 @@ interface DragDropProps {
 }
 
 const DnDBlock = styled.div`
+  padding-top: 30px;
   overflow-y: auto;
 `;
 
