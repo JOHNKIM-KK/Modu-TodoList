@@ -6,12 +6,7 @@ interface DragDropProps {
 }
 
 const DnDBlock = styled.div`
-  position: absolute;
-  top: 140px;
-  width: 90%;
-  height: 75%;
-  padding-left: 30px;
-  overflow-y: scroll;
+  overflow-y: auto;
 `;
 
 const DragDrop: React.FC<DragDropProps> = props => {

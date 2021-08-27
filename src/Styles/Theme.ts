@@ -6,6 +6,10 @@ const theme: DefaultTheme = {
     sub: "#fff",
   },
   filterColor: ["#d5e1df", "#fdf2f0", "#f8dae2", "#fbb0ac"],
+
+  size: {
+    tablet: `(max-width: 1000px)`,
+  },
 };
 
 export { theme };

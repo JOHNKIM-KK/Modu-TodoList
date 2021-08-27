@@ -66,21 +66,22 @@ const TodoItem: React.FC<TodoItemProps> = ({
           </OptionBox>
         </Importance>
       </ToggleBox>
-      <Todo>{taskName}</Todo>
-      <DueDate>
-        <span>마감일: </span>
-        {dueDate}
-      </DueDate>
-      <div onClick={handleRemove}>
-        <i className="far fa-trash-alt"></i>
-      </div>
+      <Task>{taskName}</Task>
+      <SmallBox>
+        <DueDate>
+          <span>마감일: </span>
+          {dueDate}
+        </DueDate>
+        <div onClick={handleRemove}>
+          <i className="far fa-trash-alt"></i>
+        </div>
+      </SmallBox>
     </ItemBox>
   );
 };
 
 const ItemBox = styled.div`
   display: flex;
-  justify-content: space-between;
   align-items: center;
   width: 100%;
   border-bottom: 2px solid #666666;
@@ -89,11 +90,14 @@ const ItemBox = styled.div`
 const ToggleBox = styled.div`
   display: flex;
   align-items: center;
+  width: 15%;
+  padding-top: 3px;
 `;
 
 const Progress = styled.div`
   margin-right: 10px;
-  font-size: 25px;
+  font-size: 23px;
+  color: #666666;
 
   @keyframes rotation {
     from {
@@ -127,15 +131,25 @@ const OptionBox = styled.div<{ isopen: boolean }>`
   background-color: #fff;
 `;
 
+const SmallBox = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 35%;
+`;
+
 const Level = styled.span`
   color: ${props => props.color};
 `;
 
-const Todo = styled.div`
+const Task = styled.p`
+  width: 50%;
+  word-break: break-all;
   font-size: 20px;
 `;
 
 const DueDate = styled.div`
+  margin-right: 15px;
   color: gray;
 
   span {

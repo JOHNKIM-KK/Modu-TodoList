@@ -33,6 +33,12 @@ const Nav: React.FC = () => {
 const Container = styled.div`
   margin: 10px 30px;
   padding: 30px 20px;
+
+  @media ${props => props.theme.size.tablet} {
+    display: flex;
+    justify-content: center;
+    margin: 0px 10px;
+  }
 `;
 
 const Wrapper = styled.div`
@@ -42,6 +48,11 @@ const Wrapper = styled.div`
   font-size: 40px;
   font-weight: 700;
   font-family: "Hi Melody", cursive;
+
+  @media ${props => props.theme.size.tablet} {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export default Nav;
