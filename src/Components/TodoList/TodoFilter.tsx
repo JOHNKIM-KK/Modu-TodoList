@@ -8,7 +8,7 @@ const FilterBlock = styled.div`
   width: fit-content;
   flex-direction: column;
   top: 30px;
-  left: 94%;
+  left: 87%;
   padding-left: 20px;
   list-style: none;
 `;
@@ -16,7 +16,7 @@ const FilterBlock = styled.div`
 const FilterButton = styled.button<{ selected: boolean; colorNum: number }>`
   max-width: 90px;
   padding: 2px;
-  border: 1px solid #333;
+  border: 2px solid #333;
   text-align: center;
   line-height: 18px;
   background-color: ${props => props.theme.filterColor[props.colorNum]};

@@ -91,7 +91,7 @@ const ToggleBox = styled.div`
 
 const Progress = styled.div`
   margin-right: 10px;
-  font-size: 25px;
+  font-size: 23px;
   color: #666666;
 
   @keyframes rotation {
@@ -130,7 +130,7 @@ const SmallBox = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 25%;
+  width: 35%;
 `;
 
 const Level = styled.span`
@@ -138,7 +138,7 @@ const Level = styled.span`
 `;
 
 const Task = styled.p`
-  width: 60%;
+  width: 50%;
   word-break: break-all;
   font-size: 20px;
 `;

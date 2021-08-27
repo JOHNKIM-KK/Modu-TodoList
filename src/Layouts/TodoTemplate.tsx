@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import bg from "Assets/note2.jpg";
 
 interface TodoTemplateProps {
   children: React.ReactNode;
@@ -11,14 +10,24 @@ const TodoTemplateBlock = styled.div`
   display: flex;
   flex-direction: column;
 
-  width: 800px;
-  height: 100vh;
-
   margin: 0 auto;
-  padding: 0 70px;
+  padding: 10px 90px 60px 90px;
+  overflow-y: hidden;
 
-  background-image: url(${bg});
-  background-size: cover;
+  @media ${props => props.theme.size.tablet} {
+    background-color: #dbdbdb;
+  }
+
+  img {
+    position: absolute;
+    left: 20px;
+    height: 850px;
+    /* z-index: -100; */
+
+    @media ${props => props.theme.size.tablet} {
+      visibility: hidden;
+    }
+  }
 `;
 
 const TodoTemplate: React.FC<TodoTemplateProps> = props => {

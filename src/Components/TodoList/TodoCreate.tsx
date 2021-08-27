@@ -6,6 +6,7 @@ import styled from "styled-components";
 const TodoHeadBlock = styled.div`
   display: flex;
   justify-content: center;
+  margin-bottom: 40px;
   padding-top: 52px;
 `;
 
