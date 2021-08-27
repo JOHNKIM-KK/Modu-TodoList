@@ -4,7 +4,7 @@ import { TodoTemplate } from "Layouts";
 import { Nav } from "Components/Nav";
 import { TodoCreate, TodoFilter, TodoList } from "Components/TodoList";
 import { TodoService } from "Components/TodoList";
-import bg from "Assets/drawing2.jpg";
+import bg from "Assets/background.jpg";
 
 const Home: React.FC = () => {
   const {

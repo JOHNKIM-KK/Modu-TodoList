@@ -49,6 +49,10 @@ const Wrapper = styled.div`
   font-size: 40px;
   font-weight: 700;
 
+  div:nth-child(2) {
+    color: black;
+  }
+
   @media ${props => props.theme.size.tablet} {
     flex-direction: column;
     align-items: center;
